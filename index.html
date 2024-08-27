@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来のWindows 10</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="desktop">
+        <div class="taskbar">
+            <div class="start-button" onclick="toggleStartMenu()">
+                <img src="images/start-button.png" alt="スタートボタン">
+            </div>
+            <div class="taskbar-icons">
+                <div class="taskbar-icon" onclick="openWindow('docEditor')">
+                    <img src="images/doc-editor.png" alt="ドキュメントエディタ">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('webBrowser')">
+                    <img src="images/web-browser.png" alt="ウェブブラウザ">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('imageViewer')">
+                    <img src="images/image-viewer.png" alt="画像ビューア">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('mediaPlayer')">
+                    <img src="images/media-player.png" alt="メディアプレーヤー">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('calendar')">
+                    <img src="images/calendar.png" alt="カレンダー">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('calculator')">
+                    <img src="images/calculator.png" alt="計算機">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('notepad')">
+                    <img src="images/notepad.png" alt="メモ帳">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('settings')">
+                    <img src="images/settings.png" alt="設定">
+                </div>
+                <div class="taskbar-icon" onclick="openWindow('fileExplorer')">
+                    <img src="images/file-explorer.png" alt="ファイルエクスプローラー">
+                </div>
+            </div>
+            <div class="taskbar-clock" id="clock">14:30</div>
+        </div>
+
+        <div class="start-menu" id="startMenu">
+            <button onclick="closeStartMenu()">閉じる</button>
+            <ul>
+                <li><a href="#" onclick="openWindow('docEditor')">ドキュメントエディタ</a></li>
+                <li><a href="#" onclick="openWindow('webBrowser')">ウェブブラウザ</a></li>
+                <li><a href="#" onclick="openWindow('imageViewer')">画像ビューア</a></li>
+                <li><a href="#" onclick="openWindow('mediaPlayer')">メディアプレーヤー</a></li>
+                <li><a href="#" onclick="openWindow('calendar')">カレンダー</a></li>
+                <li><a href="#" onclick="openWindow('calculator')">計算機</a></li>
+                <li><a href="#" onclick="openWindow('notepad')">メモ帳</a></li>
+                <li><a href="#" onclick="openWindow('settings')">設定</a></li>
+                <li><a href="#" onclick="openWindow('fileExplorer')">ファイルエクスプローラー</a></li>
+            </ul>
+        </div>
+
+        <div class="window" id="docEditor">
+            <div class="title-bar">
+                <span class="title">ドキュメントエディタ</span>
+                <button class="close-button" onclick="closeWindow('docEditor')">×</button>
+            </div>
+            <div class="content">
+                <textarea rows="20" cols="80" placeholder="ここにテキストを入力..."></textarea>
+            </div>
+        </div>
+
+        <div class="window" id="webBrowser">
+            <div class="title-bar">
+                <span class="title">ウェブブラウザ</span>
+                <button class="close-button" onclick="closeWindow('webBrowser')">×</button>
+            </div>
+            <div class="content">
+                <iframe src="https://www.example.com" width="100%" height="100%"></iframe>
+            </div>
+        </div>
+
+        <div class="window" id="imageViewer">
+            <div class="title-bar">
+                <span class="title">画像ビューア</span>
+                <button class="close-button" onclick="closeWindow('imageViewer')">×</button>
+            </div>
+            <div class="content">
+                <img src="images/sample-image.jpg" alt="サンプル画像" width="100%">
+            </div>
+        </div>
+
+        <div class="window" id="mediaPlayer">
+            <div class="title-bar">
+                <span class="title">メディアプレーヤー</span>
+                <button class="close-button" onclick="closeWindow('mediaPlayer')">×</button>
+            </div>
+            <div class="content">
+                <video controls width="100%">
+                    <source src="media/sample-video.mp4" type="video/mp4">
+                    お使いのブラウザは、videoタグに対応していません。
+                </video>
+            </div>
+        </div>
+
+        <div class="window" id="calendar">
+            <div class="title-bar">
+                <span class="title">カレンダー</span>
+                <button class="close-button" onclick="closeWindow('calendar')">×</button>
+            </div>
+            <div class="content">
+                <p>カレンダーのコンテンツ。</p>
+                <!-- カレンダーのウィジェットなど -->
+            </div>
+        </div>
+
+        <div class="window" id="calculator">
+            <div class="title-bar">
+                <span class="title">計算機</span>
+                <button class="close-button" onclick="closeWindow('calculator')">×</button>
+            </div>
+            <div class="content">
+                <input type="text" id="calcDisplay" disabled>
+                <div class="calc-buttons">
+                    <button onclick="appendNumber('1')">1</button>
+                    <button onclick="appendNumber('2')">2</button>
+                    <button onclick="appendNumber('3')">3</button>
+                    <button onclick="appendNumber('4')">4</button>
+                    <button onclick="appendNumber('5')">5</button>
+                    <button onclick="appendNumber('6')">6</button>
+                    <button onclick="appendNumber('7')">7</button>
+                    <button onclick="appendNumber('8')">8</button>
+                    <button onclick="appendNumber('9')">9</button>
+                    <button onclick="appendNumber('0')">0</button>
+                    <button onclick="calculateResult()">=</button>
+                    <button onclick="clearDisplay()">C</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="window" id="notepad">
+            <div class="title-bar">
+                <span class="title">メモ帳</span>
+                <button class="close-button" onclick="closeWindow('notepad')">×</button>
+            </div>
+            <div class="content">
+                <textarea rows="20" cols="80" placeholder="ここにメモを入力..."></textarea>
+            </div>
+        </div>
+
+        <div class="window" id="settings">
+            <div class="title-bar">
+                <span class="title">設定</span>
+                <button class="close-button" onclick="closeWindow('settings')">×</button>
+            </div>
+            <div class="content">
+                <h2>カラー設定</h2>
+                <label for="windowColor">ウィンドウの色:</label>
+                <input type="color" id="windowColor" name="windowColor" value="#ffffff">
+                <br>
+                <label for="taskbarColor">タスクバーの色:</label>
+                <input type="color" id="taskbarColor" name="taskbarColor" value="#000000">
+                <br>
+                <button onclick="applyColors()">適用</button>
+            </div>
+        </div>
+
+        <div class="window" id="fileExplorer">
+            <div class="title-bar">
+                <span class="title">ファイルエクスプローラー</span>
+                <button class="close-button" onclick="closeWindow('fileExplorer')">×</button>
+            </div>
+            <div class="content">
+                <ul class="file-list">
+                    <li><a href="#">ドキュメント.txt</a></li>
+                    <li><a href="#">画像.jpg</a></li>
+                    <li><a href="#">ビデオ.mp4</a></li>
+                    <li><a href="#">音楽.mp3</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="desktop-icon" onclick="openWindow('docEditor')">
+            <img src="images/doc-editor.png" alt="ドキュメントエディタ">
+            <span>ドキュメントエディタ</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('webBrowser')">
+            <img src="images/web-browser.png" alt="ウェブブラウザ">
+            <span>ウェブブラウザ</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('imageViewer')">
+            <img src="images/image-viewer.png" alt="画像ビューア">
+            <span>画像ビューア</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('mediaPlayer')">
+            <img src="images/media-player.png" alt="メディアプレーヤー">
+            <span>メディアプレーヤー</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('calendar')">
+            <img src="images/calendar.png" alt="カレンダー">
+            <span>カレンダー</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('calculator')">
+            <img src="images/calculator.png" alt="計算機">
+            <span>計算機</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('notepad')">
+            <img src="images/notepad.png" alt="メモ帳">
+            <span>メモ帳</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('settings')">
+            <img src="images/settings.png" alt="設定">
+            <span>設定</span>
+        </div>
+        <div class="desktop-icon" onclick="openWindow('fileExplorer')">
+            <img src="images/file-explorer.png" alt="ファイルエクスプローラー">
+            <span>ファイルエクスプローラー</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
