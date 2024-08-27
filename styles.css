@@ -123,3 +123,10 @@
     display: block;
     margin-top: 5px;
 }
+
+body {
+  margin: 0;
+  width: 200vw;
+  height: 200vh;
+  background-image:url("https://magazine-cf.techacademy.jp/wp-content/uploads/2021/03/20220916/laptop_small.jpg");
+}
