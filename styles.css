@@ -104,8 +104,7 @@
 }
 
 .start-menu li a:hover {
-    background-color: #f0f0f0;
-}
+    background-color: linear-gradient(135deg, #aaaaaa, #cccccc); /* グラデーションの色 */
 
 /* デスクトップアイコンのスタイル */
 .desktop-icon {
